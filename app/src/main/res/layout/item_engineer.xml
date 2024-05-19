@@ -6,34 +6,46 @@
     android:layout_height="wrap_content"
     android:background="?attr/selectableItemBackground">
 
-    <ImageView
-        android:id="@+id/profile_image"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_margin="@dimen/margin_normal"
-        android:src="@drawable/ic_person"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/black"
-        tools:ignore="ContentDescription" />
-
-    <TextView
-        android:id="@+id/name"
-        style="@style/Material.Body1.Medium.Dark"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_normal"
-        android:layout_marginTop="@dimen/margin_normal"
-        android:layout_marginEnd="@dimen/margin_normal"
-        app:layout_constraintBottom_toTopOf="@id/role"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/profile_image"
+        android:layout_margin="@dimen/margin_normal"
+        android:background="@drawable/round_background"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"
-        tools:text="Developer name" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <TextView
+        <ImageView
+            android:id="@+id/profile_image"
+            android:layout_width="76dp"
+            android:layout_height="75dp"
+            android:layout_margin="@dimen/margin_normal"
+            android:src="@drawable/ic_person"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/name"
+            style="@style/Material.Body1.Medium.Dark"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_normal"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:layout_marginEnd="@dimen/margin_normal"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@id/role"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@id/profile_image"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Developer name" />
+
+        <TextView
         android:id="@+id/role"
         style="@style/Material.Body2"
         android:layout_width="0dp"
@@ -46,6 +58,58 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/profile_image"
         app:layout_constraintTop_toBottomOf="@id/name"
+        android:textColor="@color/white"
         tools:text="Developer role" />
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+<!--<LinearLayout-->
+<!--android:id="@+id/action_container"-->
+<!--android:layout_width="0dp"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:orientation="horizontal"-->
+<!--android:layout_marginTop="@dimen/margin_normal"-->
+<!--android:layout_marginBottom="@dimen/margin_normal"-->
+<!--android:layout_marginStart="@dimen/margin_normal"-->
+<!--android:layout_marginEnd="@dimen/margin_normal"-->
+<!--app:layout_constraintBottom_toBottomOf="parent"-->
+<!--app:layout_constraintEnd_toEndOf="parent"-->
+<!--app:layout_constraintStart_toEndOf="@id/profile_image"-->
+<!--app:layout_constraintTop_toBottomOf="@id/role"-->
+<!--android:background="@drawable/white_round_background">-->
+
+<!--<TextView-->
+<!--    android:id="@+id/action_years"-->
+<!--    style="@style/Material.Body2"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:textColor="@android:color/black"-->
+<!--    android:layout_marginEnd="@dimen/margin_normal"-->
+<!--    android:textAppearance="?attr/textAppearanceListItem"-->
+<!--    tools:text="years" />-->
+
+<!--<TextView-->
+<!--    android:id="@+id/action_coffees"-->
+<!--    style="@style/Material.Body2"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:textColor="@android:color/black"-->
+<!--    android:layout_marginEnd="@dimen/margin_normal"-->
+<!--    android:textAppearance="?attr/textAppearanceListItem"-->
+<!--    tools:text="@string/engineers_menu_coffees" />-->
+
+<!--<TextView-->
+<!--    android:id="@+id/action_bugs"-->
+<!--    style="@style/Material.Body2"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:textColor="@android:color/black"-->
+<!--    android:layout_marginEnd="@dimen/margin_normal"-->
+<!--    android:textAppearance="?attr/textAppearanceListItem"-->
+<!--    tools:text="@string/engineers_menu_bugs" />-->
+<!--</LinearLayout>-->
+
+

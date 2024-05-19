@@ -27,13 +27,29 @@ class EngineersFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.menu_engineers, menu)
+        inflater.inflate(R.menu.menu_about, menu)
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.action_years) {
-            return true
+        return when (item.itemId) {
+            R.id.action_years -> {
+                val sortedEngineers = MockData.engineers.sortedBy { it.quickStats.years }
+                setUpEngineersList(sortedEngineers)
+                true
+            }
+            R.id.action_coffees -> {
+                val sortedEngineers = MockData.engineers.sortedBy { it.quickStats.coffees }
+                setUpEngineersList(sortedEngineers)
+                true
+            }
+            R.id.action_bugs -> {
+                val sortedEngineers = MockData.engineers.sortedBy { it.quickStats.bugs }
+                setUpEngineersList(sortedEngineers)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
-        return super.onOptionsItemSelected(item)
     }
 
     private fun setUpEngineersList(engineers: List<Engineer>) {
@@ -50,4 +66,5 @@ class EngineersFragment : Fragment() {
         }
         findNavController().navigate(R.id.action_engineersFragment_to_aboutFragment, bundle)
     }
+
 }

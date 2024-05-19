@@ -37,6 +37,8 @@ class QuestionCardView @JvmOverloads constructor(
         set(value) {
             field = value
             value ?: return
+            clearSelection()
+            setSelection()
             binding.answers.children.elementAt(value).isSelected = true
         }
 
@@ -58,10 +60,22 @@ class QuestionCardView @JvmOverloads constructor(
             binding.answers.children.filter { it.isSelected }.forEach {
                 it.isSelected = false
             }
+            val index = binding.answers.indexOfChild(view)
+            selection = index
         }
     }
 
     private fun setSelection() {
-
+        selection?.let { selectedIndex ->
+            val answerView = binding.answers.getChildAt(selectedIndex) as? AnswerCardView
+            answerView?.isSelected = true
+        }
     }
+
+    private fun clearSelection() {
+        binding.answers.children.forEach {
+            it.isSelected = false
+        }
+    }
+
 }
